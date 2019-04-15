@@ -3,28 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mars167.github.io/blog/2019/04/15/first/</loc>
+    <loc>https://mars167.github.io/hugo/leetcode/leetcode-1/</loc>
+    <lastmod>2019-04-15T23:37:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mars167.github.io/hugo/blog/2019/04/15/first/</loc>
     <lastmod>2019-04-15T14:29:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/about/</loc>
+    <loc>https://mars167.github.io/hugo/about/</loc>
     <lastmod>2019-04-15T14:27:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/categories/</loc>
+    <loc>https://mars167.github.io/hugo/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/</loc>
-    <lastmod>2019-04-15T14:29:00+08:00</lastmod>
+    <loc>https://mars167.github.io/hugo/leetcode/</loc>
+    <lastmod>2019-04-15T23:37:19+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/post/</loc>
+    <loc>https://mars167.github.io/hugo/</loc>
+    <lastmod>2019-04-15T23:37:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mars167.github.io/hugo/post/</loc>
     <lastmod>2019-04-15T14:29:00+08:00</lastmod>
     <priority>0</priority>
   </url>
