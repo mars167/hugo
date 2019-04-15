@@ -70,8 +70,8 @@ paginatePath = "page"
     home = "Blog"
 
     # Metadata used to drive integrations.
-    googleAnalytics = "Your Google Analytics tracking code"
-    gravatarHash = "MD5 hash of your Gravatar email address"
+    # googleAnalytics = "Your Google Analytics tracking code"
+    # gravatarHash = "MD5 hash of your Gravatar email address"
 
     # Sidebar social links, these must be full URLs.
     github = "https://github.com/mars167"
