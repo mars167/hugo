@@ -1,15 +1,15 @@
 
-# [yii2]
-# 	Name = "Yii2"
+[yii2]
+	Name = "Yii2"
 
 
 
-# [golang]
-#     Name = "goLang"
-#     # URL = "golang"
+[golang]
+    Name = "goLang"
+    # URL = "golang"
 
-# [leetcode]
-# 	Name = "leetcode"
+[leetcode]
+	Name = "leetcode"
 # [tags]
 #     Name = "Tags"
 #     Title = "Show list of tags"
