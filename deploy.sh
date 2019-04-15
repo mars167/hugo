@@ -16,5 +16,5 @@ fi
 git commit -m "$msg"
 
 # Push source and build repos.
-git push origin master
+git push -f origin master
 git subtree pull --prefix=public https://github.com/mars167/mars167.github.io.git gh-pages
