@@ -1,12 +1,15 @@
-[about]
-    Name = "About"
-    URL = "/about"
 
-[posts]
-    Name = "Posts"
-    Title = "Show list of posts"
-    URL = "/post"
+# [yii2]
+# 	Name = "Yii2"
 
+
+
+# [golang]
+#     Name = "goLang"
+#     # URL = "golang"
+
+# [leetcode]
+# 	Name = "leetcode"
 # [tags]
 #     Name = "Tags"
 #     Title = "Show list of tags"
