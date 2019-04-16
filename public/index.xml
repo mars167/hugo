@@ -18,8 +18,11 @@
       <guid>https://mars167.github.io/hugo/post/mojave_bug/</guid>
       
         <description>&lt;p&gt;&lt;strong&gt;bug描述：&lt;/strong&gt;
-当电脑离手机热点太远导致wifi断开，期间电脑进入锁屏。再次唤醒wifi卡死。
-&amp;gt;这个bug在10.14.4还是会出现，不知道跟我开着蓝灯有没有关系&lt;/p&gt;
+当电脑离手机热点太远导致wifi断开，期间电脑进入锁屏。再次唤醒wifi卡死。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;这个bug在10.14.4还是会出现，不知道跟我开着蓝灯有没有关系&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;可用方案：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
