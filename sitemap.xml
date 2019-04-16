@@ -3,6 +3,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mars167.github.io/hugo/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/</loc>
+    <lastmod>2019-04-16T13:21:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mars167.github.io/hugo/post/2_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</loc>
+    <lastmod>2019-04-16T13:21:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mars167.github.io/hugo/post/1_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
+    <lastmod>2019-04-16T13:21:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mars167.github.io/hugo/post/hugo-gh/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -65,15 +86,29 @@
   </url>
   
   <url>
+    <loc>https://mars167.github.io/hugo/tags/leetcode/</loc>
+    <lastmod>2019-04-16T13:21:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mars167.github.io/hugo/categories/leetcode/</loc>
+    <lastmod>2019-04-16T13:21:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mars167.github.io/hugo/</loc>
-    <lastmod>2019-04-16T10:21:11+08:00</lastmod>
+    <lastmod>2019-04-16T13:21:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mars167.github.io/hugo/post/</loc>
-    <lastmod>2019-04-16T10:21:11+08:00</lastmod>
+    <lastmod>2019-04-16T13:21:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Mars167 Blog</title>
-    <link>https://mars167.github.io/hugo/post/</link>
-    <description>Recent content in Posts on Mars167 Blog</description>
+    <title>Leetcode on Mars167 Blog</title>
+    <link>https://mars167.github.io/hugo/categories/leetcode/</link>
+    <description>Recent content in Leetcode on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 16 Apr 2019 13:21:46 +0800</lastBuildDate>
     
-	<atom:link href="https://mars167.github.io/hugo/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mars167.github.io/hugo/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -44,17 +44,6 @@
 
 &lt;p&gt;给定一个整数数组 &lt;code&gt;nums&lt;/code&gt; 和一个目标值 &lt;code&gt;target&lt;/code&gt;，请你在该数组中找出和为目标值的那 &lt;strong&gt;两个&lt;/strong&gt; 整数，并返回他们的数组下标。
 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Hugo Github Pages 部署 [关于subtree]</title>
-      <link>https://mars167.github.io/hugo/post/hugo-gh/</link>
-      <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
-      
-      <guid>https://mars167.github.io/hugo/post/hugo-gh/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;写的比较简略，适合熟悉git的朋友参考。由于自己比较菜可能有说的准确的地方，希望朋友们可以结合相关文档操作&lt;/p&gt;
-&lt;/blockquote&gt;</description>
     </item>
     
   </channel>
