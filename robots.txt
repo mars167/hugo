@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://mars167.github.io/hugo/sitemap.xml

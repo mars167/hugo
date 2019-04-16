@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yii2s on Mars167 Hugo</title>
+    <title>Yii2s on Mars167 Blog</title>
     <link>https://mars167.github.io/hugo/yii2/</link>
-    <description>Recent content in Yii2s on Mars167 Hugo</description>
+    <description>Recent content in Yii2s on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <managingEditor>sunjinhui167@163.com (Mars167)</managingEditor>
-    <webMaster>sunjinhui167@163.com (Mars167)</webMaster>
-    <copyright>(c) 2019 mars167.</copyright>
     <lastBuildDate>Tue, 16 Apr 2019 00:43:10 +0800</lastBuildDate>
     
 	<atom:link href="https://mars167.github.io/hugo/yii2/index.xml" rel="self" type="application/rss+xml" />
@@ -18,7 +14,7 @@
       <title>Yii2</title>
       <link>https://mars167.github.io/hugo/yii2/yii2/</link>
       <pubDate>Tue, 16 Apr 2019 00:43:10 +0800</pubDate>
-      <author>sunjinhui167@163.com (Mars167)</author>
+      
       <guid>https://mars167.github.io/hugo/yii2/yii2/</guid>
       <description></description>
     </item>
