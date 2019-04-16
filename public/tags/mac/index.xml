@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on Mars167 Blog</title>
+    <link>https://mars167.github.io/hugo/tags/mac/</link>
+    <description>Recent content in Mac on Mars167 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 Apr 2019 14:19:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://mars167.github.io/hugo/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MacOS Mojave 10.14.3 Wi-Fi卡死</title>
+      <link>https://mars167.github.io/hugo/post/mojave_bug/</link>
+      <pubDate>Tue, 16 Apr 2019 14:19:04 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/post/mojave_bug/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;bug描述：&lt;/strong&gt;
+当电脑离手机热点太远导致wifi断开，期间电脑进入锁屏。再次唤醒wifi卡死。
+&amp;gt;这个bug在10.14.4还是会出现，不知道跟我开着蓝灯有没有关系&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
