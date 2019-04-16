@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Mars167 Blog</title>
+    <link>https://mars167.github.io/hugo/tags/</link>
+    <description>Recent content in Tags on Mars167 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 Apr 2019 10:21:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://mars167.github.io/hugo/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog</title>
+      <link>https://mars167.github.io/hugo/tags/blog/</link>
+      <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://mars167.github.io/hugo/tags/git/</link>
+      <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git Pages</title>
+      <link>https://mars167.github.io/hugo/tags/git-pages/</link>
+      <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/tags/git-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://mars167.github.io/hugo/tags/hugo/</link>
+      <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

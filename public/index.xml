@@ -1,64 +1,157 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mars167 Hugo</title>
+    <title>Mars167 Blog</title>
     <link>https://mars167.github.io/hugo/</link>
-    <description>Recent content on Mars167 Hugo</description>
+    <description>Recent content on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <managingEditor>sunjinhui167@163.com (Mars167)</managingEditor>
-    <webMaster>sunjinhui167@163.com (Mars167)</webMaster>
-    <copyright>(c) 2019 mars167.</copyright>
-    <lastBuildDate>Tue, 16 Apr 2019 00:44:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2019 10:21:11 +0800</lastBuildDate>
     
-	<atom:link href="https://mars167.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://mars167.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Golang</title>
-      <link>https://mars167.github.io/hugo/goland/golang/</link>
-      <pubDate>Tue, 16 Apr 2019 00:44:13 +0800</pubDate>
-      <author>sunjinhui167@163.com (Mars167)</author>
-      <guid>https://mars167.github.io/hugo/goland/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Yii2</title>
-      <link>https://mars167.github.io/hugo/yii2/yii2/</link>
-      <pubDate>Tue, 16 Apr 2019 00:43:10 +0800</pubDate>
-      <author>sunjinhui167@163.com (Mars167)</author>
-      <guid>https://mars167.github.io/hugo/yii2/yii2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Leetcode 1</title>
-      <link>https://mars167.github.io/hugo/leetcode/leetcode-1/</link>
-      <pubDate>Mon, 15 Apr 2019 23:37:19 +0800</pubDate>
-      <author>sunjinhui167@163.com (Mars167)</author>
-      <guid>https://mars167.github.io/hugo/leetcode/leetcode-1/</guid>
-      <description>leetcode 1 content
-change
-Change222</description>
-    </item>
-    
-    <item>
-      <title>First</title>
-      <link>https://mars167.github.io/hugo/blog/2019/04/15/first/</link>
-      <pubDate>Mon, 15 Apr 2019 14:29:00 +0800</pubDate>
-      <author>sunjinhui167@163.com (Mars167)</author>
-      <guid>https://mars167.github.io/hugo/blog/2019/04/15/first/</guid>
-      <description>first hugo Hello world</description>
+      <title>Hugo Github Pages 部署 [关于subtree]</title>
+      <link>https://mars167.github.io/hugo/post/hugo-gh/</link>
+      <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/post/hugo-gh/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;写的比较简略，适合熟悉git的朋友参考。由于自己比较菜可能有说的准确的地方，希望朋友们可以结合相关文档操作&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在&lt;code&gt;hugo new site&lt;/code&gt;之后&lt;code&gt;cd&lt;/code&gt;到博客的根目录&lt;/li&gt;
+&lt;li&gt;添加&lt;code&gt;hugo new&lt;/code&gt;生成一篇文章执行&lt;code&gt;hugo&lt;/code&gt;生成静态网站到public目录，将master分支push到远程仓库&lt;/li&gt;
+&lt;li&gt;复制public目录下的内容&lt;code&gt;git checkout -b gh-pages&lt;/code&gt;将public目录下的内容复制至此&lt;code&gt;git commit&lt;/code&gt;一下 ，&lt;code&gt;git push&lt;/code&gt;将此分支到remote仓库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git checkout master&lt;/code&gt; 执行下面的命令，确保工作目录下没有修改的内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;  git subtree add --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;public origin gh-pages --squash&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;目的是将gh-pages分支下的内容放至public目录下&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;与远程仓库同步&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git subtree pull --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;public   origin gh-pages&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;push subtree&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git subtree push --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;public origin gh-pages&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果push遇到问题，这里是强制push的方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&amp;gt; git push origin &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;git subtree split --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;public origin gh-pages&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;:gh-pages --force
+&amp;gt; &lt;span class=&#34;sb&#34;&gt;```&lt;/span&gt;
+&amp;gt;
+
+&lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;. 部署脚本&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;deploy.sh&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;，将此脚本文件放在根目录下当有新写的文章的时候&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;./deploy.sh&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;执行此脚本即刻完成自动部署到github
+
+   &amp;gt; 注意，设置自己的remote
+   &amp;gt;
+   &amp;gt; &lt;span class=&#34;sb&#34;&gt;```&lt;/span&gt;
+   &amp;gt; git remote add origin &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;远程仓库地址&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+   &amp;gt; &lt;span class=&#34;sb&#34;&gt;```&lt;/span&gt;
+
+&lt;span class=&#34;sb&#34;&gt;```&lt;/span&gt;bash
+&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; -e &lt;span class=&#34;s2&#34;&gt;&amp;#34;\033[0;32mDeploying updates to GitHub...\033[0m&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Build the project.&lt;/span&gt;
+hugo
+
+&lt;span class=&#34;c1&#34;&gt;# Add changes to git.&lt;/span&gt;
+git add -A
+
+&lt;span class=&#34;c1&#34;&gt;# Commit changes.&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;rebuilding site `date`&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$msg&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Push source and build repos.&lt;/span&gt;
+git push  origin master
+git subtree push --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;public origin gh-pages
+git subtree pull --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;public origin gh-pages&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/blockquote&gt;</description>
+      
     </item>
     
     <item>
       <title>About</title>
       <link>https://mars167.github.io/hugo/about/</link>
       <pubDate>Mon, 15 Apr 2019 14:27:09 +0800</pubDate>
-      <author>sunjinhui167@163.com (Mars167)</author>
+      
       <guid>https://mars167.github.io/hugo/about/</guid>
-      <description> about </description>
+      
+        <description>
+
+&lt;h3 id=&#34;about&#34;&gt;about&lt;/h3&gt;
+</description>
+      
     </item>
     
   </channel>

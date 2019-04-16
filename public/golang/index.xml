@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golangs on Mars167 Blog</title>
+    <link>https://mars167.github.io/hugo/golang/</link>
+    <description>Recent content in Golangs on Mars167 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 Apr 2019 08:43:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://mars167.github.io/hugo/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo部署</title>
+      <link>https://mars167.github.io/hugo/golang/hugo%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Tue, 16 Apr 2019 08:43:34 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/golang/hugo%E9%83%A8%E7%BD%B2/</guid>
+      <description>#通过github page部署自己的Hugo博客</description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://mars167.github.io/hugo/golang/golang/</link>
+      <pubDate>Tue, 16 Apr 2019 00:47:31 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/golang/golang/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
