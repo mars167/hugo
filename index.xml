@@ -5,10 +5,52 @@
     <link>https://mars167.github.io/hugo/</link>
     <description>Recent content on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 16 Apr 2019 13:21:46 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2019 14:19:04 +0800</lastBuildDate>
     
         <atom:link href="https://mars167.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MacOS Mojave 10.14.3 Wi-Fi卡死</title>
+      <link>https://mars167.github.io/hugo/post/mojave_bug/</link>
+      <pubDate>Tue, 16 Apr 2019 14:19:04 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/post/mojave_bug/</guid>
+      
+        <description>&lt;p&gt;&lt;strong&gt;bug描述：&lt;/strong&gt;
+当电脑离手机热点太远导致wifi断开，期间电脑进入锁屏。再次唤醒wifi卡死。
+&amp;gt;这个bug在10.14.4还是会出现，不知道跟我开着蓝灯有没有关系&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;可用方案：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;ps aux &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep -v grep &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep /usr/libexec/airportd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; awk &lt;span class=&#34;s1&#34;&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;机型：MacBook Pro (13-inch, 2016, Four Thunderbolt 3 Ports)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&#34;在桌面建立一个恢复脚本-fix-sh&#34;&gt;在桌面建立一个恢复脚本&lt;code&gt;fix.sh&lt;/code&gt;&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+sudo &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;ps aux &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep -v grep &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep /usr/libexec/airportd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; awk &lt;span class=&#34;s1&#34;&gt;&amp;#39;{print $2}&amp;#39;&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+      
+    </item>
     
     <item>
       <title>9_回文数</title>
