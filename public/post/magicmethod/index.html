@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PHP魔术方法总结 - Mars167 Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="mars167" />
+  <meta name="description" content=" 参考《PHP7内核刨析》，以及php官方文档
+ PHP魔术方法包括
+__construct()， __destruct()， __call()， __callStatic()， __get()， __set()， __isset()， __unset()， __sleep()， __wakeup()， __toString()， __invoke()， __set_state()， __clone() 和 __debugInfo()
+ PHP 将所有以 __（两个下划线）开头的类方法保留为魔术方法。所以在定义类方法时，除了上述魔术方法，建议不要以 __ 为前缀。
+" />
+<meta name="keywords" content="php, 魔术方法" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0" />
+
+
+<link rel="canonical" href="https://mars167.github.io/hugo/post/magicmethod/" />
+
+
+
+<link rel="icon" href="/hugo/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/hugo/sass/jane.min.ec807d8b802a40889537c26e014f733206312ea440d42e1f0dabed80918de1ac.css" integrity="sha256-7IB9i4AqQIiVN8JuAU9zMgYxLqRA1C4fDavtgJGN4aw=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="PHP魔术方法总结" />
+<meta property="og:description" content="
+参考《PHP7内核刨析》，以及php官方文档
+
+
+PHP魔术方法包括
+
+__construct()， __destruct()， __call()， __callStatic()， __get()， __set()， __isset()， __unset()， __sleep()， __wakeup()， __toString()， __invoke()， __set_state()， __clone() 和 __debugInfo()
+
+
+PHP 将所有以 __（两个下划线）开头的类方法保留为魔术方法。所以在定义类方法时，除了上述魔术方法，建议不要以 __ 为前缀。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mars167.github.io/hugo/post/magicmethod/" />
+<meta property="article:published_time" content="2019-04-18T22:01:48&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-18T22:01:48&#43;08:00"/><meta property="og:site_name" content="Mars167 Blog" />
+
+<meta itemprop="name" content="PHP魔术方法总结">
+<meta itemprop="description" content="
+参考《PHP7内核刨析》，以及php官方文档
+
+
+PHP魔术方法包括
+
+__construct()， __destruct()， __call()， __callStatic()， __get()， __set()， __isset()， __unset()， __sleep()， __wakeup()， __toString()， __invoke()， __set_state()， __clone() 和 __debugInfo()
+
+
+PHP 将所有以 __（两个下划线）开头的类方法保留为魔术方法。所以在定义类方法时，除了上述魔术方法，建议不要以 __ 为前缀。
+">
+
+
+<meta itemprop="datePublished" content="2019-04-18T22:01:48&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-18T22:01:48&#43;08:00" />
+<meta itemprop="wordCount" content="2918">
+
+
+
+<meta itemprop="keywords" content="php," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PHP魔术方法总结"/>
+<meta name="twitter:description" content="
+参考《PHP7内核刨析》，以及php官方文档
+
+
+PHP魔术方法包括
+
+__construct()， __destruct()， __call()， __callStatic()， __get()， __set()， __isset()， __unset()， __sleep()， __wakeup()， __toString()， __invoke()， __set_state()， __clone() 和 __debugInfo()
+
+
+PHP 将所有以 __（两个下划线）开头的类方法保留为魔术方法。所以在定义类方法时，除了上述魔术方法，建议不要以 __ 为前缀。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/hugo/" class="logo">Mars167</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/">首页</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/hugo/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/hugo/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/hugo/" class="logo">
+    
+      Mars167
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://mars167.github.io/hugo/">首页</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">PHP魔术方法总结</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-04-18" class="post-time">
+          2019-04-18
+        </time>
+        <div class="post-category">
+            <a href="https://mars167.github.io/hugo/categories/php/"> php </a>
+            
+          </div>
+        <span class="more-meta"> 约 2918 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <blockquote>
+<p>参考《PHP7内核刨析》，以及php官方文档</p>
+</blockquote>
+
+<p><strong>PHP魔术方法包括</strong></p>
+
+<p><code>__construct()</code>， <code>__destruct()</code>， <code>__call()</code>， <code>__callStatic()</code>， <code>__get()</code>， <code>__set()</code>， <code>__isset()</code>， <code>__unset()</code>， <code>__sleep()</code>， <code>__wakeup()</code>， <code>__toString()</code>， <code>__invoke()</code>， <code>__set_state()</code>， <code>__clone()</code> 和 <code>__debugInfo()</code></p>
+
+<blockquote>
+<p>PHP 将所有以 <code>__</code>（两个下划线）开头的类方法保留为魔术方法。所以在定义类方法时，除了上述魔术方法，建议不要以 <code>__</code> 为前缀。</p>
+</blockquote>
+
+<h4 id="重载-https-www-php-net-manual-zh-language-oop5-overloading-php-language-oop5-overloading"><a href="https://www.php.net/manual/zh/language.oop5.overloading.php#language.oop5.overloading"><strong>重载</strong></a></h4>
+
+<p>PHP所提供的重载（overloading）是指动态地创建类属性和方法。我们是通过魔术方法（magic methods）来实现的。</p>
+
+<p>当调用当前环境下未定义或不<a href="https://www.php.net/manual/zh/language.oop5.visibility.php">可见</a>的类属性或方法时，重载方法会被调用。本节后面将使用不可访问属性（inaccessible properties）和不可访问方法（inaccessible methods）来称呼这些未定义或不可见的类属性或方法。</p>
+
+<p>所有的重载方法都必须被声明为 *public*。</p>
+
+<blockquote>
+<p><strong>Note</strong>:</p>
+
+<p>这些魔术方法的参数都不能<a href="https://www.php.net/manual/zh/functions.arguments.php#functions.arguments.by-reference">通过引用传递</a>。</p>
+
+<p><strong>Note</strong>:</p>
+
+<p>PHP中的重载与其它绝大多数面向对象语言不同。传统的重载是用于提供多个同名的类方法，但各方法的参数类型和个数不同。</p>
+</blockquote>
+
+<h3 id="1-get-set-isset-unset-方法-属性重载">1. <code>__get()</code>,<code>__set()</code>，<code>__isset()</code> <code>__unset()</code>方法（属性重载）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">public __set ( string $name , mixed $value ) : void
+public __get ( string $name ) : mixed
+public __isset ( string $name ) : bool
+public __unset ( string $name ) : void</code></pre></td></tr></table>
+</div>
+</div>
+<p>在给不可访问属性赋值时，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.set">__set()</a> 会被调用。</p>
+
+<p>读取不可访问属性的值时，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.get">__get()</a> 会被调用。</p>
+
+<p>当对不可访问属性调用 <a href="https://www.php.net/manual/zh/function.isset.php">isset()</a> 或 <a href="https://www.php.net/manual/zh/function.empty.php">empty()</a> 时，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.isset">__isset()</a> 会被调用。</p>
+
+<p>当对不可访问属性调用 <a href="https://www.php.net/manual/zh/function.unset.php">unset()</a> 时，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.unset">__unset()</a> 会被调用。</p>
+
+<p>参数 <code>$name</code> 是指要操作的变量名称。<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.set"><code>__set()</code></a> 方法的 <code>$value</code> 参数指定了 <code>$name</code> 变量的值。</p>
+
+<p>属性重载只能在对象中进行。在静态方法中，这些魔术方法将不会被调用。所以这些方法都不能被 声明为 <a href="https://www.php.net/manual/zh/language.oop5.static.php">static</a>。从 PHP 5.3.0 起, 将这些魔术方法定义为 <em>static</em> 会产生一个警告。</p>
+
+<blockquote>
+<p><strong>Note</strong>:</p>
+
+<p>因为 PHP 处理赋值运算的方式，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.set">__set()</a> 的返回值将被忽略。类似的, 在下面这样的链式赋值中，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.get">__get()</a> 不会被调用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"> $a = $obj-&gt;b = 8; </pre></td></tr></table>
+</div>
+</div>
+<p>在除 <a href="https://www.php.net/manual/zh/function.isset.php">isset()</a> 外的其它语言结构中无法使用重载的属性，这意味着当对一个重载的属性使用 <a href="https://www.php.net/manual/zh/function.empty.php">empty()</a> 时，重载魔术方法将不会被调用。</p>
+
+<p>为避开此限制，必须将重载属性赋值到本地变量再使用 <a href="https://www.php.net/manual/zh/function.empty.php">empty()</a>。</p>
+</blockquote>
+
+<p><strong>Example #1 使用 <strong>get()，</strong>set()，__isset() 和 __unset() 进行属性重载</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+  <span class="k">class</span> <span class="nc">PropertyTest</span> <span class="p">{</span>     <span class="sd">/**  被重载的数据保存在此  */</span>  
+  <span class="k">private</span> <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>      <span class="sd">/**  重载不能被用在已经定义的属性  */</span>  
+  <span class="k">public</span> <span class="nv">$declared</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>     <span class="sd">/**  只有从类外部访问这个属性时，重载才会发生 */</span>   
+  <span class="k">private</span> <span class="nv">$hidden</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>   
+  <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>    
+  <span class="p">{</span>        
+    <span class="k">echo</span> <span class="s2">&#34;Setting &#39;</span><span class="si">$name</span><span class="s2">&#39; to &#39;</span><span class="si">$value</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>     
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>    
+  <span class="p">}</span>   
+  <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> 
+  <span class="p">{</span>       
+    <span class="k">echo</span> <span class="s2">&#34;Getting &#39;</span><span class="si">$name</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>    
+    <span class="k">if</span> <span class="p">(</span><span class="nx">array_key_exists</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">))</span> <span class="p">{</span>      
+      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="nv">$name</span><span class="p">];</span>      
+    <span class="p">}</span>        
+    <span class="nv">$trace</span> <span class="o">=</span> <span class="nx">debug_backtrace</span><span class="p">();</span>    
+    <span class="nx">trigger_error</span><span class="p">(</span>          
+      <span class="s1">&#39;Undefined property via __get(): &#39;</span> <span class="o">.</span> <span class="nv">$name</span> <span class="o">.</span>     
+      <span class="s1">&#39; in &#39;</span> <span class="o">.</span> <span class="nv">$trace</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">.</span>        
+      <span class="s1">&#39; on line &#39;</span> <span class="o">.</span> <span class="nv">$trace</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;line&#39;</span><span class="p">],</span>   
+      <span class="nx">E_USER_NOTICE</span><span class="p">);</span>      
+    <span class="k">return</span> <span class="k">null</span><span class="p">;</span>   
+  <span class="p">}</span>    <span class="sd">/**  PHP 5.1.0之后版本 */</span>   
+  <span class="k">public</span> <span class="k">function</span> <span class="fm">__isset</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>  
+  <span class="p">{</span>        <span class="k">echo</span> <span class="s2">&#34;Is &#39;</span><span class="si">$name</span><span class="s2">&#39; set?</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>   
+   <span class="k">return</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="nv">$name</span><span class="p">]);</span>   
+  <span class="p">}</span>    <span class="sd">/**  PHP 5.1.0之后版本 */</span>   
+  <span class="k">public</span> <span class="k">function</span> <span class="fm">__unset</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>    
+  <span class="p">{</span>        <span class="k">echo</span> <span class="s2">&#34;Unsetting &#39;</span><span class="si">$name</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>  
+   <span class="nx">unset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">data</span><span class="p">[</span><span class="nv">$name</span><span class="p">]);</span>   
+  <span class="p">}</span>    <span class="sd">/**  非魔术方法  */</span>  
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">getHidden</span><span class="p">()</span>    
+  <span class="p">{</span>      
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hidden</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">echo</span> <span class="s2">&#34;&lt;pre&gt;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PropertyTest</span><span class="p">;</span>
+<span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="k">echo</span> <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">a</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="nx">var_dump</span><span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">a</span><span class="p">));</span>
+<span class="nx">unset</span><span class="p">(</span><span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">a</span><span class="p">);</span>
+<span class="nx">var_dump</span><span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">a</span><span class="p">));</span>
+<span class="k">echo</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span><span class="k">echo</span> <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">declared</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&#34;Let&#39;s experiment with the private property named &#39;hidden&#39;:</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&#34;Privates are visible inside the class, so __get() not used...</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">getHidden</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&#34;Privates not visible outside of class, so __get() is used...</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">hidden</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span><span class="cp">?&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>以上例程会输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Setting &#39;a&#39; to &#39;1&#39;
+Getting &#39;a&#39;
+1
+
+Is &#39;a&#39; set?
+bool(true)
+Unsetting &#39;a&#39;
+Is &#39;a&#39; set?
+bool(false)
+
+1
+
+Let&#39;s experiment with the private property named &#39;hidden&#39;:
+Privates are visible inside the class, so __get() not used...
+2
+Privates not visible outside of class, so __get() is used...
+Getting &#39;hidden&#39;
+
+
+Notice:  Undefined property via __get(): hidden in &lt;file&gt; on line 70 in &lt;file&gt; on line 29</pre></td></tr></table>
+</div>
+</div>
+<h3 id="2-call-callstatic-方法重载-https-www-php-net-manual-zh-language-oop5-overloading-php-language-oop5-overloading-methods">2. <code>__call()</code>,<code>__callStatic</code>(<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#language.oop5.overloading.methods">方法重载</a>)</h3>
+
+<p>public __call ( string <code>$name</code> , array <code>$arguments</code> ) : <a href="https://www.php.net/manual/zh/language.pseudo-types.php#language.types.mixed">mixed</a></p>
+
+<p>public static __callStatic ( string <code>$name</code> , array <code>$arguments</code> ) : <a href="https://www.php.net/manual/zh/language.pseudo-types.php#language.types.mixed">mixed</a></p>
+
+<p>在对象中调用一个不可访问方法时，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.call">__call()</a> 会被调用。</p>
+
+<p>在静态上下文中调用一个不可访问方法时，<a href="https://www.php.net/manual/zh/language.oop5.overloading.php#object.callstatic">__callStatic()</a> 会被调用。</p>
+
+<p>$name 参数是要调用的方法名称。$arguments 参数是一个枚举数组，包含着要传递给方法 $name 的参数。</p>
+
+<p><strong>Example #2 使用 __call() 和 __callStatic() 对方法重载</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+  <span class="k">class</span> <span class="nc">MethodTest</span> 
+	<span class="p">{</span>   
+  	<span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>  
+    <span class="p">{</span>        <span class="c1">// 注意: $name 的值区分大小写   
+</span><span class="c1"></span>      <span class="k">echo</span> <span class="s2">&#34;Calling object method &#39;</span><span class="si">$name</span><span class="s2">&#39; &#34;</span>    
+        <span class="o">.</span> <span class="nx">implode</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span><span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>   
+    	<span class="p">}</span>    <span class="sd">/**  PHP 5.3.0之后版本  */</span> 
+  		<span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>    
+      <span class="p">{</span>        <span class="c1">// 注意: $name 的值区分大小写   
+</span><span class="c1"></span>        <span class="k">echo</span> <span class="s2">&#34;Calling static method &#39;</span><span class="si">$name</span><span class="s2">&#39; &#34;</span>          
+          <span class="o">.</span> <span class="nx">implode</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span><span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>  
+      <span class="p">}</span>
+	<span class="p">}</span>
+<span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MethodTest</span><span class="p">;</span><span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">runTest</span><span class="p">(</span><span class="s1">&#39;in object context&#39;</span><span class="p">);</span>
+<span class="nx">MethodTest</span><span class="o">::</span><span class="na">runTest</span><span class="p">(</span><span class="s1">&#39;in static context&#39;</span><span class="p">);</span>  <span class="c1">// PHP 5.3.0之后版本
+</span><span class="c1"></span><span class="cp">?&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>以上例程会输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Calling object method &#39;runTest&#39; in object context
+Calling static method &#39;runTest&#39; in static context</pre></td></tr></table>
+</div>
+</div>
+<h3 id="3-sleep-https-www-php-net-manual-zh-language-oop5-magic-php-object-sleep-和-wakeup-https-www-php-net-manual-zh-language-oop5-magic-php-object-wakeup-https-www-php-net-manual-zh-language-oop5-magic-php-language-oop5-magic-sleep">3. <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.sleep">__sleep()</a> 和 <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.wakeup">__wakeup()</a> <a href="https://www.php.net/manual/zh/language.oop5.magic.php#language.oop5.magic.sleep">¶</a></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">public __sleep ( void ) : array
+
+__wakeup ( void ) : void</code></pre></td></tr></table>
+</div>
+</div>
+<p><a href="https://www.php.net/manual/zh/function.serialize.php">serialize()</a> 函数会检查类中是否存在一个魔术方法 <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.sleep">__sleep()</a>。如果存在，该方法会先被调用，然后才执行序列化操作。此功能可以用于清理对象，并返回一个包含对象中所有应被序列化的变量名称的数组。如果该方法未返回任何内容，则 <strong>NULL</strong> 被序列化，并产生一个 <strong>E_NOTICE</strong> 级别的错误。</p>
+
+<blockquote>
+<p><strong>Note</strong>:</p>
+
+<p><a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.sleep">__sleep()</a> 不能返回父类的私有成员的名字。这样做会产生一个 <strong>E_NOTICE</strong> 级别的错误。可以用 <strong>Serializable</strong> 接口来替代。</p>
+</blockquote>
+
+<p><a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.sleep">__sleep()</a> 方法常用于提交未提交的数据，或类似的清理操作。同时，如果有一些很大的对象，但不需要全部保存，这个功能就很好用。</p>
+
+<p>与之相反，<a href="https://www.php.net/manual/zh/function.unserialize.php">unserialize()</a> 会检查是否存在一个 <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.wakeup">__wakeup()</a> 方法。如果存在，则会先调用 <em>__wakeup</em> 方法，预先准备对象需要的资源。</p>
+
+<p><a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.wakeup">__wakeup()</a> 经常用在反序列化操作中，例如重新建立数据库连接，或执行其它初始化操作。</p>
+
+<p><strong>Example #1 Sleep 和 wakeup</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+<span class="k">class</span> <span class="nc">Connection</span> 
+<span class="p">{</span>    
+	<span class="k">protected</span> <span class="nv">$link</span><span class="p">;</span>   
+  <span class="k">private</span> <span class="nv">$server</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$db</span><span class="p">;</span>    
+  <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$server</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">,</span> <span class="nv">$db</span><span class="p">)</span>  
+  <span class="p">{</span>       
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">server</span> <span class="o">=</span> <span class="nv">$server</span><span class="p">;</span>   
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="nv">$username</span><span class="p">;</span>    
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">password</span> <span class="o">=</span> <span class="nv">$password</span><span class="p">;</span>       
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span> <span class="o">=</span> <span class="nv">$db</span><span class="p">;</span>       
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">();</span>  
+  <span class="p">}</span>       
+  <span class="k">private</span> <span class="k">function</span> <span class="nf">connect</span><span class="p">()</span>   
+  <span class="p">{</span>     
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">link</span> <span class="o">=</span> <span class="nx">mysql_connect</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">server</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">password</span><span class="p">);</span>        		    	
+    <span class="nx">mysql_select_db</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">link</span><span class="p">);</span>   
+  <span class="p">}</span>       
+  <span class="k">public</span> <span class="k">function</span> <span class="fm">__sleep</span><span class="p">()</span>  
+  <span class="p">{</span>       
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;db&#39;</span><span class="p">);</span>   
+  <span class="p">}</span>       
+  <span class="k">public</span> <span class="k">function</span> <span class="fm">__wakeup</span><span class="p">()</span>   
+  <span class="p">{</span>        
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">();</span>    
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="4-tostring-https-www-php-net-manual-zh-language-oop5-magic-php-object-tostring-https-www-php-net-manual-zh-language-oop5-magic-php-language-oop5-magic-tostring">4. <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.tostring">__toString()</a><a href="https://www.php.net/manual/zh/language.oop5.magic.php#language.oop5.magic.tostring"> ¶</a></h3>
+
+<p>public __toString ( void ) : string</p>
+
+<p><a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.tostring">__toString()</a> 方法用于一个类被当成字符串时应怎样回应。例如 <em>echo $obj;</em> 应该显示些什么。此方法必须返回一个字符串，否则将发出一条 <strong>E_RECOVERABLE_ERROR</strong> 级别的致命错误。</p>
+
+<p>Warning</p>
+
+<p>不能在 <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.tostring">__toString()</a> 方法中抛出异常。这么做会导致致命错误。</p>
+
+<p><strong>Example #2 简单示例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php// Declare a simple classclass TestClass{    public $foo;    public function __construct($foo)     {        $this-&gt;foo = $foo;    }    public function __toString() {        return $this-&gt;foo;    }}$class = new TestClass(&#39;Hello&#39;);echo $class;?&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>以上例程会输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Hello</pre></td></tr></table>
+</div>
+</div>
+<p>需要指出的是在 PHP 5.2.0 之前，<a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.tostring">__toString()</a> 方法只有在直接使用于 <a href="https://www.php.net/manual/zh/function.echo.php">echo</a> 或 <a href="https://www.php.net/manual/zh/function.print.php">print</a> 时才能生效。PHP 5.2.0 之后，则可以在任何字符串环境生效（例如通过 <a href="https://www.php.net/manual/zh/function.printf.php">printf()</a>，使用 <em>%s</em> 修饰符），但不能用于非字符串环境（如使用 <em>%d</em> 修饰符）。自 PHP 5.2.0 起，如果将一个未定义 <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.tostring">__toString()</a> 方法的对象转换为字符串，会产生 <strong>E_RECOVERABLE_ERROR</strong> 级别的错误。</p>
+
+<h3 id="5-invoke-https-www-php-net-manual-zh-language-oop5-magic-php-object-invoke-https-www-php-net-manual-zh-language-oop5-magic-php-language-oop5-magic-invoke">5. <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.invoke">__invoke()</a><a href="https://www.php.net/manual/zh/language.oop5.magic.php#language.oop5.magic.invoke"> ¶</a></h3>
+
+<p><code>__invoke ([ $... ] ) : mixed</code></p>
+
+<p>当尝试以调用函数的方式调用一个对象时，<a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.invoke">__invoke()</a> 方法会被自动调用。</p>
+
+<blockquote>
+<p><strong>Note</strong>:</p>
+
+<p>本特性只在 PHP 5.3.0 及以上版本有效。</p>
+</blockquote>
+
+<p><strong>Example #3 使用 __invoke()</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+   <span class="k">class</span> <span class="nc">CallableClass</span> <span class="p">{</span>   
+    <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nv">$x</span><span class="p">)</span>
+    <span class="p">{</span>       
+      <span class="nx">var_dump</span><span class="p">(</span><span class="nv">$x</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CallableClass</span><span class="p">;</span><span class="nv">$obj</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+  <span class="nx">var_dump</span><span class="p">(</span><span class="nx">is_callable</span><span class="p">(</span><span class="nv">$obj</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>以上例程会输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">int(5)
+bool(true)</pre></td></tr></table>
+</div>
+</div>
+<h3 id="6-set-state-https-www-php-net-manual-zh-language-oop5-magic-php-object-set-state-https-www-php-net-manual-zh-language-oop5-magic-php-language-oop5-magic-set-state">6. <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.set-state">__set_state()</a><a href="https://www.php.net/manual/zh/language.oop5.magic.php#language.oop5.magic.set-state"> ¶</a></h3>
+
+<p>static __set_state ( array <code>$properties</code> ) : object</p>
+
+<p>自 PHP 5.1.0 起当调用 <a href="https://www.php.net/manual/zh/function.var-export.php">var_export()</a> 导出类时，此<a href="https://www.php.net/manual/zh/language.oop5.static.php">静态</a> 方法会被调用。</p>
+
+<p>本方法的唯一参数是一个数组，其中包含按 <em>array(&lsquo;property&rsquo; =&gt; value, &hellip;)</em> 格式排列的类属性。</p>
+
+<p><strong>Example #4 使用 __set_state()&gt;（PHP 5.1.0 起）</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+  <span class="k">class</span> <span class="nc">A</span><span class="p">{</span>   
+  <span class="k">public</span> <span class="nv">$var1</span><span class="p">;</span>   
+  <span class="k">public</span> <span class="nv">$var2</span><span class="p">;</span>    
+  <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__set_state</span><span class="p">(</span><span class="nv">$an_array</span><span class="p">)</span> <span class="c1">// As of PHP 5.1.0   
+</span><span class="c1"></span>  <span class="p">{</span>        
+    <span class="nv">$obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">A</span><span class="p">;</span>       
+    <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">var1</span> <span class="o">=</span> <span class="nv">$an_array</span><span class="p">[</span><span class="s1">&#39;var1&#39;</span><span class="p">];</span>       
+    <span class="nv">$obj</span><span class="o">-&gt;</span><span class="na">var2</span> <span class="o">=</span> <span class="nv">$an_array</span><span class="p">[</span><span class="s1">&#39;var2&#39;</span><span class="p">];</span>        
+    <span class="k">return</span> <span class="nv">$obj</span><span class="p">;</span>   
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">A</span><span class="p">;</span>
+<span class="nv">$a</span><span class="o">-&gt;</span><span class="na">var1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nv">$a</span><span class="o">-&gt;</span><span class="na">var2</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
+<span class="k">eval</span><span class="p">(</span><span class="s1">&#39;$b = &#39;</span> <span class="o">.</span> <span class="nx">var_export</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;;&#39;</span><span class="p">);</span>	<span class="c1">// $b = A::__set_state(array(                                            																					 	 //    &#39;var1&#39; =&gt; 5,                                   
+</span><span class="c1"></span>																						<span class="c1">//    &#39;var2&#39; =&gt; &#39;foo&#39;,                                            
+</span><span class="c1"></span>																						<span class="c1">// ));
+</span><span class="c1"></span><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$b</span><span class="p">);</span><span class="cp">?&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>以上例程会输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">object(A)#2 (2) {
+  [&#34;var1&#34;]=&gt;
+  int(5)
+  [&#34;var2&#34;]=&gt;
+  string(3) &#34;foo&#34;
+}</pre></td></tr></table>
+</div>
+</div>
+<h3 id="7-debuginfo-https-www-php-net-manual-zh-language-oop5-magic-php-object-debuginfo-https-www-php-net-manual-zh-language-oop5-magic-php-language-oop5-magic-debuginfo">7. <a href="https://www.php.net/manual/zh/language.oop5.magic.php#object.debuginfo">__debugInfo()</a><a href="https://www.php.net/manual/zh/language.oop5.magic.php#language.oop5.magic.debuginfo"> ¶</a></h3>
+
+<p><code>__debugInfo ( void ) : array</code></p>
+
+<p>当 <code>var_dump()</code>被使用时，如果此方法被定义了就会调用此方法。如果这个方法没有被定义<code>var_dump()</code>会显示类的全部信息。</p>
+
+<p>This feature was added in PHP 5.6.0.</p>
+
+<p><strong>Example #5 Using __debugInfo()</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> 
+  <span class="k">class</span> <span class="nc">C</span> <span class="p">{</span>  
+    <span class="k">private</span> <span class="nv">$prop</span><span class="p">;</span>   
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$val</span><span class="p">)</span>
+    <span class="p">{</span>  
+      <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prop</span> <span class="o">=</span> <span class="nv">$val</span><span class="p">;</span>   
+    <span class="p">}</span>    
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__debugInfo</span><span class="p">()</span>
+    <span class="p">{</span>       
+      <span class="k">return</span> <span class="p">[</span> 
+        <span class="s1">&#39;propSquared&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prop</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>    <span class="c1">//幂运算 
+</span><span class="c1"></span>      <span class="p">];</span>   
+ 	 	<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nx">var_dump</span><span class="p">(</span><span class="k">new</span> <span class="nx">C</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>以上例程会输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">object(C)#1 (1) {
+  [&#34;propSquared&#34;]=&gt;
+  int(1764)
+}</pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://mars167.github.io/hugo/tags/php/">php</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/hugo/post/mojave_bug/">
+            <span class="next-text nav-default">MacOS Mojave 10.14.3 Wi-Fi卡死</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+  
+  
+
+  
+  <div class="post bg-white">
+    <script src="https://utteranc.es/client.js"
+          repo="mars167/hugo"
+          issue-term="pathname"
+          label="11111"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:sunjinhui167@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.facebook.com/Mars167-374743549936970/" rel="me noopener" class="iconfont"
+      title="facebook"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="33" height="33">
+  <path d="M965.7344 2.7648c14.848 0 28.2624 5.5296 40.2432 16.6912C1017.9584 30.5152 1024 43.52 1024 58.2656l0 910.2336c0 14.848-6.0416 27.7504-18.0224 38.8096C993.8944 1018.4704 980.48 1024 965.7344 1024L704.9216 1024 704.9216 629.9648l133.2224 0 19.456-155.4432-152.576 0L705.024 373.0432c0-50.688 25.9072-76.0832 77.7216-76.0832l80.4864 0L863.232 163.5328c-27.7504-5.4272-67.4816-8.192-119.296-8.192-59.1872 0-106.8032 18.0224-142.9504 54.0672C564.736 245.5552 546.7136 296.0384 546.7136 360.7552l0 113.7664L413.4912 474.5216l0 155.4432 133.2224 0L546.7136 1024 55.5008 1024c-14.848 0-27.7504-5.5296-38.8096-16.6912C5.5296 996.2496 0 983.3472 0 968.4992L0 58.2656C0 43.52 5.5296 30.5152 16.6912 19.456c11.0592-11.0592 24.064-16.6912 38.8096-16.6912L965.7344 2.7648z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.linkedin.com/in/%E9%87%91%E8%BE%89-%E5%AD%99-52a350163/" rel="me noopener" class="iconfont"
+      title="linkedin"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="33" height="33">
+  <path d="M872.405333 872.618667h-151.637333v-237.610667c0-56.661333-1.152-129.578667-79.018667-129.578667-79.061333 0-91.136 61.653333-91.136 125.397334v241.792H398.976V384h145.664v66.602667h1.962667c20.352-38.4 69.845333-78.933333 143.786666-78.933334 153.642667 0 182.058667 101.12 182.058667 232.746667v268.202667zM227.712 317.141333a87.978667 87.978667 0 0 1-88.021333-88.106666 88.064 88.064 0 1 1 88.021333 88.106666z m76.032 555.477334H151.68V384h152.064v488.618667zM948.266667 0H75.562667C33.792 0 0 33.024 0 73.770667v876.458666C0 991.018667 33.792 1024 75.562667 1024h872.576C989.866667 1024 1024 991.018667 1024 950.229333V73.770667C1024 33.024 989.866667 0 948.138667 0h0.128z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/mars167" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://mars167.github.io/hugo/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        mars167
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/hugo/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/hugo/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/hugo/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/hugo/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/hugo/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/hugo/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+  <script id="dsq-count-scr" src="//.disqus.com/count.js" async></script>
+
+
+
+
+
+</body>
+</html>
