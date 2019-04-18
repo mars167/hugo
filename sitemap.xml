@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mars167.github.io/hugo/post/magicmethod/</loc>
+    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mars167.github.io/hugo/post/mojave_bug/</loc>
     <lastmod>2019-04-16T14:19:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -122,14 +129,28 @@
   
   <url>
     <loc>https://mars167.github.io/hugo/</loc>
-    <lastmod>2019-04-16T14:19:04+08:00</lastmod>
+    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mars167.github.io/hugo/tags/php/</loc>
+    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mars167.github.io/hugo/categories/php/</loc>
+    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mars167.github.io/hugo/post/</loc>
-    <lastmod>2019-04-16T14:19:04+08:00</lastmod>
+    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

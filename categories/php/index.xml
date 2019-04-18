@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Php on Mars167 Blog</title>
+    <link>https://mars167.github.io/hugo/categories/php/</link>
+    <description>Recent content in Php on Mars167 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 18 Apr 2019 22:01:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://mars167.github.io/hugo/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PHP魔术方法总结</title>
+      <link>https://mars167.github.io/hugo/post/magicmethod/</link>
+      <pubDate>Thu, 18 Apr 2019 22:01:48 +0800</pubDate>
+      
+      <guid>https://mars167.github.io/hugo/post/magicmethod/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;参考《PHP7内核刨析》，以及php官方文档&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;PHP魔术方法包括&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;__construct()&lt;/code&gt;， &lt;code&gt;__destruct()&lt;/code&gt;， &lt;code&gt;__call()&lt;/code&gt;， &lt;code&gt;__callStatic()&lt;/code&gt;， &lt;code&gt;__get()&lt;/code&gt;， &lt;code&gt;__set()&lt;/code&gt;， &lt;code&gt;__isset()&lt;/code&gt;， &lt;code&gt;__unset()&lt;/code&gt;， &lt;code&gt;__sleep()&lt;/code&gt;， &lt;code&gt;__wakeup()&lt;/code&gt;， &lt;code&gt;__toString()&lt;/code&gt;， &lt;code&gt;__invoke()&lt;/code&gt;， &lt;code&gt;__set_state()&lt;/code&gt;， &lt;code&gt;__clone()&lt;/code&gt; 和 &lt;code&gt;__debugInfo()&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;PHP 将所有以 &lt;code&gt;__&lt;/code&gt;（两个下划线）开头的类方法保留为魔术方法。所以在定义类方法时，除了上述魔术方法，建议不要以 &lt;code&gt;__&lt;/code&gt; 为前缀。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
