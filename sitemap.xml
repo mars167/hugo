@@ -1,162 +1,162 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<?xml-stylesheet type="text/xsl" href="https://mars167.github.io/hugo/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://mars167.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mars167.github.io/hugo/post/magicmethod/</loc>
+    <loc>https://mars167.github.io/post/magicmethod/</loc>
     <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/post/mojave_bug/</loc>
+    <loc>https://mars167.github.io/post/mojave_bug/</loc>
     <lastmod>2019-04-16T14:19:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/</loc>
+    <loc>https://mars167.github.io/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/</loc>
     <lastmod>2019-04-16T13:21:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/post/2_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</loc>
+    <loc>https://mars167.github.io/post/2_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</loc>
     <lastmod>2019-04-16T13:21:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/post/1_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
+    <loc>https://mars167.github.io/post/1_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
     <lastmod>2019-04-16T13:21:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/post/hugo-gh/</loc>
+    <loc>https://mars167.github.io/post/hugo-gh/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/about/</loc>
+    <loc>https://mars167.github.io/about/</loc>
     <lastmod>2019-04-15T14:27:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/blog/</loc>
+    <loc>https://mars167.github.io/tags/blog/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/categories/</loc>
+    <loc>https://mars167.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/git/</loc>
+    <loc>https://mars167.github.io/tags/git/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/categories/git/</loc>
+    <loc>https://mars167.github.io/categories/git/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/git-pages/</loc>
+    <loc>https://mars167.github.io/tags/git-pages/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/hugo/</loc>
+    <loc>https://mars167.github.io/tags/hugo/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/categories/hugo/</loc>
+    <loc>https://mars167.github.io/categories/hugo/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/leetcode/</loc>
+    <loc>https://mars167.github.io/tags/leetcode/</loc>
     <lastmod>2019-04-16T13:21:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/categories/leetcode/</loc>
+    <loc>https://mars167.github.io/categories/leetcode/</loc>
     <lastmod>2019-04-16T13:21:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/mac/</loc>
+    <loc>https://mars167.github.io/tags/mac/</loc>
     <lastmod>2019-04-16T14:19:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/categories/mac/</loc>
+    <loc>https://mars167.github.io/categories/mac/</loc>
     <lastmod>2019-04-16T14:19:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/</loc>
+    <loc>https://mars167.github.io/</loc>
     <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/php/</loc>
+    <loc>https://mars167.github.io/tags/php/</loc>
     <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/categories/php/</loc>
+    <loc>https://mars167.github.io/categories/php/</loc>
     <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/post/</loc>
+    <loc>https://mars167.github.io/post/</loc>
     <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mars167.github.io/hugo/tags/</loc>
+    <loc>https://mars167.github.io/tags/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
