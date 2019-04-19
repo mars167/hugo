@@ -2,55 +2,55 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Mars167 Blog</title>
-    <link>https://mars167.github.io/categories/</link>
+    <link>http://blog.sunjinhui.top/categories/</link>
     <description>Recent content in Categories on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="https://mars167.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.sunjinhui.top/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git</title>
-      <link>https://mars167.github.io/categories/git/</link>
+      <link>http://blog.sunjinhui.top/categories/git/</link>
       <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
       
-      <guid>https://mars167.github.io/categories/git/</guid>
+      <guid>http://blog.sunjinhui.top/categories/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>https://mars167.github.io/categories/hugo/</link>
+      <link>http://blog.sunjinhui.top/categories/hugo/</link>
       <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
       
-      <guid>https://mars167.github.io/categories/hugo/</guid>
+      <guid>http://blog.sunjinhui.top/categories/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Leetcode</title>
-      <link>https://mars167.github.io/categories/leetcode/</link>
+      <link>http://blog.sunjinhui.top/categories/leetcode/</link>
       <pubDate>Tue, 16 Apr 2019 13:21:46 +0800</pubDate>
       
-      <guid>https://mars167.github.io/categories/leetcode/</guid>
+      <guid>http://blog.sunjinhui.top/categories/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mac</title>
-      <link>https://mars167.github.io/categories/mac/</link>
+      <link>http://blog.sunjinhui.top/categories/mac/</link>
       <pubDate>Tue, 16 Apr 2019 14:19:04 +0800</pubDate>
       
-      <guid>https://mars167.github.io/categories/mac/</guid>
+      <guid>http://blog.sunjinhui.top/categories/mac/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Php</title>
-      <link>https://mars167.github.io/categories/php/</link>
+      <link>http://blog.sunjinhui.top/categories/php/</link>
       <pubDate>Thu, 18 Apr 2019 22:01:48 +0800</pubDate>
       
-      <guid>https://mars167.github.io/categories/php/</guid>
+      <guid>http://blog.sunjinhui.top/categories/php/</guid>
       <description></description>
     </item>
     

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php on Mars167 Blog</title>
-    <link>https://mars167.github.io/categories/php/</link>
+    <link>http://blog.sunjinhui.top/categories/php/</link>
     <description>Recent content in Php on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 18 Apr 2019 22:01:48 +0800</lastBuildDate>
     
-	<atom:link href="https://mars167.github.io/categories/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.sunjinhui.top/categories/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PHP魔术方法总结</title>
-      <link>https://mars167.github.io/post/magicmethod/</link>
+      <link>http://blog.sunjinhui.top/post/magicmethod/</link>
       <pubDate>Thu, 18 Apr 2019 22:01:48 +0800</pubDate>
       
-      <guid>https://mars167.github.io/post/magicmethod/</guid>
+      <guid>http://blog.sunjinhui.top/post/magicmethod/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;参考《PHP7内核刨析》，以及php官方文档&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://mars167.github.io/sitemap.xml
+Sitemap: http://blog.sunjinhui.top/sitemap.xml
