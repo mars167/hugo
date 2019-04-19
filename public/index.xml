@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mars167 Blog</title>
-    <link>https://mars167.github.io/hugo/</link>
+    <link>https://mars167.github.io/</link>
     <description>Recent content on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 18 Apr 2019 22:01:48 +0800</lastBuildDate>
     
-        <atom:link href="https://mars167.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://mars167.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PHP魔术方法总结</title>
-      <link>https://mars167.github.io/hugo/post/magicmethod/</link>
+      <link>https://mars167.github.io/post/magicmethod/</link>
       <pubDate>Thu, 18 Apr 2019 22:01:48 +0800</pubDate>
       
-      <guid>https://mars167.github.io/hugo/post/magicmethod/</guid>
+      <guid>https://mars167.github.io/post/magicmethod/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;参考《PHP7内核刨析》，以及php官方文档&lt;/p&gt;
@@ -622,10 +622,10 @@ bool(true)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
     
     <item>
       <title>MacOS Mojave 10.14.3 Wi-Fi卡死</title>
-      <link>https://mars167.github.io/hugo/post/mojave_bug/</link>
+      <link>https://mars167.github.io/post/mojave_bug/</link>
       <pubDate>Tue, 16 Apr 2019 14:19:04 +0800</pubDate>
       
-      <guid>https://mars167.github.io/hugo/post/mojave_bug/</guid>
+      <guid>https://mars167.github.io/post/mojave_bug/</guid>
       
         <description>&lt;p&gt;&lt;strong&gt;bug描述：&lt;/strong&gt;
 当电脑离手机热点太远导致wifi断开，期间电脑进入锁屏。再次唤醒wifi卡死。&lt;/p&gt;
@@ -667,10 +667,10 @@ sudo &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;sb&
     
     <item>
       <title>9_回文数</title>
-      <link>https://mars167.github.io/hugo/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/</link>
+      <link>https://mars167.github.io/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/</link>
       <pubDate>Tue, 16 Apr 2019 13:21:46 +0800</pubDate>
       
-      <guid>https://mars167.github.io/hugo/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/</guid>
+      <guid>https://mars167.github.io/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/</guid>
       
         <description>&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/palindrome-number/&#34;&gt;9. 回文数&lt;/a&gt;&lt;/p&gt;
 
@@ -762,10 +762,10 @@ sudo &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;sb&
     
     <item>
       <title>2_两数相加</title>
-      <link>https://mars167.github.io/hugo/post/2_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</link>
+      <link>https://mars167.github.io/post/2_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</link>
       <pubDate>Tue, 16 Apr 2019 13:21:40 +0800</pubDate>
       
-      <guid>https://mars167.github.io/hugo/post/2_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</guid>
+      <guid>https://mars167.github.io/post/2_%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</guid>
       
         <description>&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/add-two-numbers/&#34;&gt;2. 两数相加&lt;/a&gt;&lt;/p&gt;
 
@@ -997,10 +997,10 @@ sudo &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;sb&
     
     <item>
       <title>1_两数之和</title>
-      <link>https://mars167.github.io/hugo/post/1_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <link>https://mars167.github.io/post/1_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
       <pubDate>Tue, 16 Apr 2019 13:21:24 +0800</pubDate>
       
-      <guid>https://mars167.github.io/hugo/post/1_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <guid>https://mars167.github.io/post/1_%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
       
         <description>&lt;p&gt;&lt;a href=&#34;https://leetcode-cn.com/problems/two-sum/&#34;&gt;1.两数之和&lt;/a&gt;&lt;/p&gt;
 
@@ -1085,10 +1085,10 @@ sudo &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;sb&
     
     <item>
       <title>Hugo Github Pages 部署 [关于subtree]</title>
-      <link>https://mars167.github.io/hugo/post/hugo-gh/</link>
+      <link>https://mars167.github.io/post/hugo-gh/</link>
       <pubDate>Tue, 16 Apr 2019 10:21:11 +0800</pubDate>
       
-      <guid>https://mars167.github.io/hugo/post/hugo-gh/</guid>
+      <guid>https://mars167.github.io/post/hugo-gh/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;写的比较简略，适合熟悉git的朋友参考。由于自己比较菜可能有说的准确的地方，希望朋友们可以结合相关文档操作&lt;/p&gt;
@@ -1212,10 +1212,10 @@ git subtree pull --prefix&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;public orig
     
     <item>
       <title>About</title>
-      <link>https://mars167.github.io/hugo/about/</link>
+      <link>https://mars167.github.io/about/</link>
       <pubDate>Mon, 15 Apr 2019 14:27:09 +0800</pubDate>
       
-      <guid>https://mars167.github.io/hugo/about/</guid>
+      <guid>https://mars167.github.io/about/</guid>
       
         <description>
 
