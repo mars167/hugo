@@ -1,4 +1,4 @@
-baseURL = "https://mars167.github.io/"
+baseURL = "http://blog.sunjinhui.top"
 title = "Mars167 Hugo"
 enableRobotsTXT = true
 enableEmoji = true
