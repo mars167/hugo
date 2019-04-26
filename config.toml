@@ -1,4 +1,4 @@
-baseURL = "http://blog.sunjinhui.top"
+baseURL = "http://blog.sunjinhui.top/"
 title = "Mars167 Hugo"
 enableRobotsTXT = true
 enableEmoji = true
