@@ -5,10 +5,139 @@
     <link>http://blog.sunjinhui.top/</link>
     <description>Recent content on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Apr 2019 22:01:48 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Apr 2019 08:41:03 +0800</lastBuildDate>
     
         <atom:link href="http://blog.sunjinhui.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>进程、线程、协程与goruntine笔记</title>
+      <link>http://blog.sunjinhui.top/post/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Fri, 26 Apr 2019 08:41:03 +0800</pubDate>
+      
+      <guid>http://blog.sunjinhui.top/post/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;参考资料&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5b0014b7518825426e023666&#34;&gt;https://juejin.im/post/5b0014b7518825426e023666&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000004878639&#34;&gt;https://segmentfault.com/q/1010000004878639&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;进程&#34;&gt;进程&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;进程是系统资源分配的最小单位, 系统由一个个进程(程序)组成 一般情况下，包括文本区域（text region）、数据区域（data region）和堆栈（stack region）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;文本区域存储处理器执行的代码&lt;/li&gt;
+&lt;li&gt;数据区域存储变量和进程执行期间使用的动态分配的内存；&lt;/li&gt;
+&lt;li&gt;堆栈区域存储着活动过程调用的指令和本地变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;因此进程的创建和销毁都是相对于系统资源,所以是一种比较昂贵的操作。 进程有三个状态:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;等待态：等待某个事件的完成；&lt;/li&gt;
+&lt;li&gt;就绪态：等待系统分配处理器以便运行；&lt;/li&gt;
+&lt;li&gt;运行态：占有处理器正在运行。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;进程是抢占式的争夺CPU运行自身,而CPU单核的情况下同一时间只能执行一个进程的代码,但是多进程的实现则是通过CPU飞快的切换不同进程,因此使得看上去就像是多个进程在同时进行.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;通信问题:    由于进程间是隔离的,各自拥有自己的内存内存资源, &lt;em&gt;因此相对于线程比较安全&lt;/em&gt;, 所以不同进程之间的数据只能通过 &lt;em&gt;IPC(Inter-Process Communication)&lt;/em&gt; 进行通信共享.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;线程&#34;&gt;线程&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;线程属于进程&lt;/li&gt;
+&lt;li&gt;线程共享进程的内存地址空间&lt;/li&gt;
+&lt;li&gt;线程几乎不占有系统资源&lt;/li&gt;
+&lt;li&gt;通信问题:   进程相当于一个容器,而线程而是运行在容器里面的,因此对于容器内的东西,线程是共同享有的,因此线程间的通信可以直接通过全局变量进行通信,但是由此带来的例如多个线程读写同一个地址变量的时候则将带来不可预期的后果,因此这时候引入了各种锁的作用,例如互斥锁等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;同时多线程是不安全的,当一个线程崩溃了,会导致整个进程也崩溃了,即其他线程也挂了, 但多进程而不会,一个进程挂了,另一个进程依然照样运行。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;进程是系统分配资源的最小单位&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;线程是CPU调度的最小单位&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;由于默认进程内只有一个线程,所以多核CPU处理多进程就像是一个进程一个核心&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;线程和进程的上下文切换&#34;&gt;线程和进程的上下文切换&lt;/h3&gt;
+
+&lt;p&gt;进程切换分3步:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;切换页目录以使用新的地址空间&lt;/li&gt;
+&lt;li&gt;切换内核栈&lt;/li&gt;
+&lt;li&gt;切换硬件上下文&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;而线程切换只需要第2、3步,因此进程的切换代价比较大&lt;/p&gt;
+
+&lt;h2 id=&#34;协程coroutine&#34;&gt;协程Coroutine&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;协程是属于线程的。协程程序是在线程里面跑的，因此协程又称微线程和纤程等&lt;/li&gt;
+&lt;li&gt;协程没有线程的上下文切换消耗。协程的调度切换是用户(程序员)手动切换的,因此更加灵活,因此又叫用户空间线程.&lt;/li&gt;
+&lt;li&gt;原子操作性。由于协程是用户调度的，所以不会出现执行一半的代码片段被强制中断了，因此无需原子操作锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;协程的实现-迭代器和生成器&#34;&gt;协程的实现：迭代器和生成器&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;迭代器： 实现了迭代接口的类,接口函数例如:current,key,next,rewind,valid。迭代器最基本的规定了对象可以通过next返回下一个值，而不是像数组，列表一样一次性返回。&lt;/li&gt;
+&lt;li&gt;语言实现：在Java的foreach遍历迭代器对(数组)，Python的for遍历迭代器对象(tuple，list，dist)。&lt;/li&gt;
+&lt;li&gt;生成器： 使用 &lt;em&gt;yield&lt;/em&gt; 关键字的函数,可以多次返回值，生成器实际上也算是实现了迭代器接口(协议)。即生成器也可通过next返回下一个值。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;协程举例：在Python中，使用了yield的函数为生成器函数，即可以多次返回值。则生成器可以暂停一下，转而执行其他代码，再回来继续执行函数往下的代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;进程-线程-协程概念性区别&#34;&gt;进程、线程、协程概念性区别&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对于&lt;strong&gt;进程、线程&lt;/strong&gt;，都是有内核进行调度，有CPU时间片的概念，进行&lt;strong&gt;抢占式调度&lt;/strong&gt;（有多种调度算法）。&lt;/li&gt;
+&lt;li&gt;对于&lt;strong&gt;协程&lt;/strong&gt;(用户级线程)，这是对内核透明的，也就是系统并不知道有协程的存在，是完全由用户的程序自己调度的，因为是由用户程序自己控制，那么就很难像抢占式调度那样做到强制的CPU控制权切换到其他进程/线程，通常只能进行&lt;strong&gt;协作式调度&lt;/strong&gt;，需要协程自己主动把控制权转让出去之后，其他协程才能被执行到。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;goroutine-和协程区别&#34;&gt;goroutine 和协程区别&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;本质上，goroutine 就是协程。&lt;/strong&gt; 不同的是，Golang 在 runtime、系统调用等多方面对 goroutine 调度进行了封装和处理，当遇到长时间执行或者进行系统调用时，会主动把当前 goroutine 的CPU (P) 转让出去，让其他 goroutine 能被调度并执行，也就是 Golang 从语言层面支持了协程。&lt;/p&gt;
+
+&lt;h2 id=&#34;其他方面不同&#34;&gt;其他方面不同&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;内存消耗方面&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;每个 goroutine (协程) 默认占用内存远比 Java 、C 的线程少。
+&lt;em&gt;goroutine&lt;/em&gt;: 2KB
+线程: 8MB&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;** 线程/goroutine 切换(调度)开销方面**&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;线程/goroutine 切换开销方面，goroutine 远比线程小
+&lt;em&gt;线程&lt;/em&gt;: 涉及模式切换(从用户态切换到内核态)、16个寄存器、PC、SP&amp;hellip;等寄存器的刷新等。
+&lt;em&gt;goroutine&lt;/em&gt;: 只有三个寄存器的值修改 - PC / SP / DX.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+      
+    </item>
     
     <item>
       <title>PHP魔术方法总结</title>

@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.sunjinhui.top/post/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.sunjinhui.top/post/magicmethod/</loc>
     <lastmod>2019-04-18T22:01:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -86,6 +93,20 @@
   </url>
   
   <url>
+    <loc>http://blog.sunjinhui.top/tags/goruntine/</loc>
+    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.sunjinhui.top/categories/goruntine/</loc>
+    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.sunjinhui.top/tags/hugo/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -129,7 +150,7 @@
   
   <url>
     <loc>http://blog.sunjinhui.top/</loc>
-    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
+    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -150,7 +171,7 @@
   
   <url>
     <loc>http://blog.sunjinhui.top/post/</loc>
-    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
+    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -158,6 +179,13 @@
   <url>
     <loc>http://blog.sunjinhui.top/tags/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.sunjinhui.top/tags/%E5%8D%8F%E7%A8%8B/</loc>
+    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
