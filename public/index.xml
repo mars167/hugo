@@ -105,7 +105,7 @@ git commit -m &lt;span class=&#34;s1&#34;&gt;&amp;#39;update .gitignore&amp;#39;
 
 &lt;p&gt;而线程切换只需要第2、3步,因此进程的切换代价比较大&lt;/p&gt;
 
-&lt;h2 id=&#34;协程coroutine&#34;&gt;协程Coroutine&lt;/h2&gt;
+&lt;h2 id=&#34;协程goroutine&#34;&gt;协程Goroutine&lt;/h2&gt;
 
 &lt;blockquote&gt;
 &lt;ul&gt;
