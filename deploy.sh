@@ -17,6 +17,6 @@ git commit -m "$msg"
 
 # Push source and build repos.
 git push  origin master
-git subtree pull --prefix=public origin gh-pages
+# git subtree pull --prefix=public origin gh-pages
 git subtree push --prefix=public origin gh-pages
 
