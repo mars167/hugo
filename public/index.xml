@@ -1248,7 +1248,7 @@ sudo &lt;span class=&#34;nb&#34;&gt;kill&lt;/span&gt; -9 &lt;span class=&#34;sb&
 
 &lt;ol&gt;
 &lt;li&gt;在&lt;code&gt;hugo new site&lt;/code&gt;之后&lt;code&gt;cd&lt;/code&gt;到博客的根目录&lt;/li&gt;
-&lt;li&gt;添加&lt;code&gt;hugo new&lt;/code&gt;生成一篇文章执行&lt;code&gt;hugo&lt;/code&gt;生成静态网站到public目录，将master分支push到远程仓库&lt;/li&gt;
+&lt;li&gt;添加&lt;code&gt;hugo new&lt;/code&gt;生成一篇文章执行&lt;code&gt;hugo&lt;/code&gt;生成静态网站到public目录，如果你要用自己的域名别忘了在public目录下加上名为&lt;code&gt;CNAME&lt;/code&gt;的文件，里面写自己网站的域名比如本站&lt;code&gt;blog.sunjinhui.top&lt;/code&gt;,将master分支push到远程仓库&lt;/li&gt;
 &lt;li&gt;复制public目录下的内容&lt;code&gt;git checkout -b gh-pages&lt;/code&gt;将public目录下的内容复制至此&lt;code&gt;git commit&lt;/code&gt;一下 ，&lt;code&gt;git push&lt;/code&gt;将此分支到remote仓库&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;git checkout master&lt;/code&gt; 执行下面的命令，确保工作目录下没有修改的内容&lt;/li&gt;
 &lt;/ol&gt;

@@ -24,7 +24,7 @@ mathjax: false
 <!--more-->
 
 1. 在`hugo new site`之后`cd `到博客的根目录
-2. 添加`hugo new `生成一篇文章执行`hugo`生成静态网站到public目录，将master分支push到远程仓库
+2. 添加`hugo new `生成一篇文章执行`hugo`生成静态网站到public目录，如果你要用自己的域名别忘了在public目录下加上名为`CNAME`的文件，里面写自己网站的域名比如本站`blog.sunjinhui.top`,将master分支push到远程仓库
 3. 复制public目录下的内容`git checkout -b gh-pages`将public目录下的内容复制至此`git commit`一下 ，`git push`将此分支到remote仓库
 4. `git checkout master` 执行下面的命令，确保工作目录下没有修改的内容
 
@@ -51,7 +51,7 @@ git subtree push --prefix=public origin gh-pages
 >
  ```bash
  git push origin `git subtree split --prefix=public origin gh-pages`:gh-pages  --force
-```
+ ```
 
 7. 部署脚本`deploy.sh`，将此脚本文件放在根目录下当有新写的文章的时候`./deploy.sh`执行此脚本即刻完成自动部署到github
 
