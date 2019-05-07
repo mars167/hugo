@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.sunjinhui.top/post/gitignore/</loc>
+    <lastmod>2019-05-07T15:29:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.sunjinhui.top/post/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2019-04-26T08:41:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/tags/git/</loc>
+    <loc>http://blog.sunjinhui.top/categories/git/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/categories/git/</loc>
+    <loc>http://blog.sunjinhui.top/tags/git/</loc>
     <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -93,8 +100,15 @@
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/tags/goruntine/</loc>
-    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
+    <loc>http://blog.sunjinhui.top/categories/gitignore/</loc>
+    <lastmod>2019-05-07T15:29:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.sunjinhui.top/tags/gitignore/</loc>
+    <lastmod>2019-05-07T15:29:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -107,8 +121,8 @@
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/tags/hugo/</loc>
-    <lastmod>2019-04-16T10:21:11+08:00</lastmod>
+    <loc>http://blog.sunjinhui.top/tags/goruntine/</loc>
+    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -121,8 +135,8 @@
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/tags/leetcode/</loc>
-    <lastmod>2019-04-16T13:21:46+08:00</lastmod>
+    <loc>http://blog.sunjinhui.top/tags/hugo/</loc>
+    <lastmod>2019-04-16T10:21:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -135,8 +149,8 @@
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/tags/mac/</loc>
-    <lastmod>2019-04-16T14:19:04+08:00</lastmod>
+    <loc>http://blog.sunjinhui.top/tags/leetcode/</loc>
+    <lastmod>2019-04-16T13:21:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -149,15 +163,15 @@
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/</loc>
-    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
+    <loc>http://blog.sunjinhui.top/tags/mac/</loc>
+    <lastmod>2019-04-16T14:19:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.sunjinhui.top/tags/php/</loc>
-    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
+    <loc>http://blog.sunjinhui.top/</loc>
+    <lastmod>2019-05-07T15:29:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -170,8 +184,15 @@
   </url>
   
   <url>
+    <loc>http://blog.sunjinhui.top/tags/php/</loc>
+    <lastmod>2019-04-18T22:01:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.sunjinhui.top/post/</loc>
-    <lastmod>2019-04-26T08:41:03+08:00</lastmod>
+    <lastmod>2019-05-07T15:29:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
