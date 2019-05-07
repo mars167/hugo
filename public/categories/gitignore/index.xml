@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitignore on Mars167 Blog</title>
+    <link>http://blog.sunjinhui.top/categories/gitignore/</link>
+    <description>Recent content in Gitignore on Mars167 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 May 2019 15:29:38 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.sunjinhui.top/categories/gitignore/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitignore</title>
+      <link>http://blog.sunjinhui.top/post/gitignore/</link>
+      <pubDate>Tue, 07 May 2019 15:29:38 +0800</pubDate>
+      
+      <guid>http://blog.sunjinhui.top/post/gitignore/</guid>
+      <description>&lt;h1 id=&#34;gitignore&#34;&gt;Gitignore&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git rm -r --cached .
+git add .
+git commit -m &lt;span class=&#34;s1&#34;&gt;&amp;#39;update .gitignore&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
