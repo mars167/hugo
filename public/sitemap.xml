@@ -239,4 +239,18 @@
     <priority>0</priority>
   </url>
   
+  <url>
+    <loc>http://blog.sunjinhui.top/categories/%E5%A4%8D%E4%B9%A0/</loc>
+    <lastmod>2019-05-23T22:48:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.sunjinhui.top/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2019-05-23T22:48:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
 </urlset>

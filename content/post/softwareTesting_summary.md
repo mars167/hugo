@@ -1,12 +1,12 @@
 ---
-title: "SoftwareTesting_summary"
+title: “软件测试"
 date: 2019-05-23T22:48:05+08:00
 lastmod: 2019-05-23T22:48:05+08:00
 draft: false
 keywords: []
 description: ""
-tags: []
-categories: []
+tags: ["软件测试"]
+categories: ["复习"]
 author: ""
 
 # You can also close(false) or open(true) something for this content.
