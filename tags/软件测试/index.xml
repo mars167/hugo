@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件测试 on Mars167 Blog</title>
+    <link>http://blog.sunjinhui.top/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</link>
+    <description>Recent content in 软件测试 on Mars167 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 23 May 2019 22:48:05 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.sunjinhui.top/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>“软件测试&#34;</title>
+      <link>http://blog.sunjinhui.top/post/softwaretesting_summary/</link>
+      <pubDate>Thu, 23 May 2019 22:48:05 +0800</pubDate>
+      
+      <guid>http://blog.sunjinhui.top/post/softwaretesting_summary/</guid>
+      <description>&lt;p&gt;软件测试复习&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
