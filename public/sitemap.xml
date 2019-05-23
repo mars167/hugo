@@ -3,6 +3,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.sunjinhui.top/post/softwaretesting_summary/</loc>
+    <lastmod>2019-05-23T22:48:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.sunjinhui.top/post/composer_install/</loc>
+    <lastmod>2019-05-12T02:16:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.sunjinhui.top/post/gitignore/</loc>
     <lastmod>2019-05-07T15:29:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -74,6 +88,20 @@
   
   <url>
     <loc>http://blog.sunjinhui.top/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.sunjinhui.top/tags/composer/</loc>
+    <lastmod>2019-05-12T02:16:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.sunjinhui.top/categories/composer/</loc>
+    <lastmod>2019-05-12T02:16:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -171,7 +199,7 @@
   
   <url>
     <loc>http://blog.sunjinhui.top/</loc>
-    <lastmod>2019-05-07T15:29:38+08:00</lastmod>
+    <lastmod>2019-05-23T22:48:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -192,7 +220,7 @@
   
   <url>
     <loc>http://blog.sunjinhui.top/post/</loc>
-    <lastmod>2019-05-07T15:29:38+08:00</lastmod>
+    <lastmod>2019-05-23T22:48:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
