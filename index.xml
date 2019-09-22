@@ -5,10 +5,214 @@
     <link>http://blog.sunjinhui.top/</link>
     <description>Recent content on Mars167 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 23 May 2019 22:48:05 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2019 16:14:57 +0800</lastBuildDate>
     
         <atom:link href="http://blog.sunjinhui.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rails Active Record总结</title>
+      <link>http://blog.sunjinhui.top/post/rails-active-record%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 22 Sep 2019 16:14:57 +0800</pubDate>
+      
+      <guid>http://blog.sunjinhui.top/post/rails-active-record%E6%80%BB%E7%BB%93/</guid>
+      
+        <description>&lt;blockquote&gt;
+&lt;p&gt;总结自&lt;a href=&#34;https://ruby-china.github.io/rails-guides/index.html&#34;&gt;Ruby on Rails 指南&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;rails-6种关联类型&#34;&gt;Rails 6种关联类型&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;声明所在的模型实例属于另一个模型的实例&lt;/li&gt;
+&lt;li&gt;外键在 &lt;code&gt;belongs_to&lt;/code&gt; 关联所在模型对应的表中，即XXX_id所在的模型&lt;/li&gt;
+&lt;li&gt;在 &lt;code&gt;has_one&lt;/code&gt; 和 &lt;code&gt;belongs_to&lt;/code&gt; 关联中，必须使用 &lt;code&gt;build_*&lt;/code&gt; 方法构建关联对象。&lt;code&gt;association.build&lt;/code&gt; 方法是在 &lt;code&gt;has_many&lt;/code&gt; 和 &lt;code&gt;has_and_belongs_to_many&lt;/code&gt; 关联中使用的。创建关联对象要使用 &lt;code&gt;create_*&lt;/code&gt; 方法。&lt;/li&gt;
+&lt;li&gt;声明 &lt;code&gt;belongs_to&lt;/code&gt; 关联后，所在的类自动获得了五个和关联相关的方法：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;association&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;association=(associate)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;build_association(attributes = {})&lt;/code&gt;返回对象不存入数据库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;create_association(attributes = {})&lt;/code&gt;返回对象并存入数据库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;create_association!(attributes = {})&lt;/code&gt;不通过valid时抛出异常&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;belongs_to&lt;/code&gt; 关联支持下列选项：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:autosave&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:class_name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:counter_cache&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:dependent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:foreign_key&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:primary_key&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:inverse_of&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:polymorphic&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:touch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:validate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:optional&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在作用域代码块中可以使用任何一个标准的&lt;a href=&#34;https://ruby-china.github.io/rails-guides/active_record_querying.html&#34;&gt;查询方法&lt;/a&gt;。下面分别介绍这几个：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;where&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;includes&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;readonly&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;这种关联表示模型的实例包含或拥有另一个模型的实例&lt;/li&gt;
+&lt;li&gt;声明 &lt;code&gt;has_one&lt;/code&gt; 关联后，声明所在的类自动获得了五个关联相关的方法：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;association&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;association=(associate)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;build_association(attributes = {})&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;create_association(attributes = {})&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;create_association!(attributes = {})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one&lt;/code&gt; 关联支持下列选项：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:as&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:autosave&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:class_name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:dependent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:foreign_key&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:inverse_of&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:primary_key&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:source&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:source_type&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:validate&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在作用域代码块中可以使用任何一个标准的&lt;a href=&#34;https://ruby-china.github.io/rails-guides/active_record_querying.html&#34;&gt;查询方法&lt;/a&gt;。下面介绍其中几个：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;where&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;includes&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;readonly&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt; 关联建立两个模型之间的一对多关系。在 &lt;code&gt;belongs_to&lt;/code&gt; 关联的另一端经常会使用这个关联&lt;/li&gt;
+&lt;li&gt;声明 &lt;code&gt;has_many&lt;/code&gt; 关联后，声明所在的类自动获得了 16 个关联相关的方法：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;collection&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection&amp;lt;&amp;lt;(object, &amp;amp;#8230;&amp;amp;#8203;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.delete(object, &amp;amp;#8230;&amp;amp;#8203;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.destroy(object, &amp;amp;#8230;&amp;amp;#8203;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection=(objects)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection_singular_ids&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection_singular_ids=(ids)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.clear&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.empty?&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.size&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.find(&amp;amp;#8230;&amp;amp;#8203;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.where(&amp;amp;#8230;&amp;amp;#8203;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.exists?(&amp;amp;#8230;&amp;amp;#8203;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.build(attributes = {}, &amp;amp;#8230;&amp;amp;#8203;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.create(attributes = {})&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;collection.create!(attributes = {})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many&lt;/code&gt; 关联支持以下选项：
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:as&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:autosave&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:class_name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:counter_cache&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:dependent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:foreign_key&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:inverse_of&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:primary_key&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:source&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:source_type&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:validate&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_many :through&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;建立两个模型之间的多对多关联。这种关联表示一个模型的实例可以借由第三个模型（关系表），拥有零个和多个另一模型的实例。&lt;/li&gt;
+&lt;li&gt;有一个关系表和相对应的model&lt;/li&gt;
+&lt;li&gt;如果想把关联模型当做独立实体使用，要用 &lt;code&gt;has_many :through&lt;/code&gt; 关联&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_one :through&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过第三个模型，建立其他两个模型的一对一关系&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;has_and_belongs_to_many&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不借由第三个模型建立的多对多&lt;/li&gt;
+&lt;li&gt;仍然有第三个关系表但这个表没有model&lt;/li&gt;
+&lt;li&gt;如果不需要使用关联模型，建立 &lt;code&gt;has_and_belongs_to_many&lt;/code&gt; 关联更简单（不过要记得在数据库中创建联结表）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;自联结如何创建&#34;&gt;自联结如何创建&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;sb&#34;&gt;`class`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`Employee &amp;lt; ApplicationRecord``  ``has_many ``:subordinates``, class_name: ``&amp;#34;Employee&amp;#34;``,``                          ``foreign_key: ``&amp;#34;manager_id&amp;#34;`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`  ``belongs_to ``:manager``, class_name: ``&amp;#34;Employee&amp;#34;``end`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;创建联结表&#34;&gt;创建联结表&lt;/h4&gt;
+
+&lt;p&gt;使用&lt;code&gt;create_join_table&lt;/code&gt;创建联结表&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;sb&#34;&gt;`class`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`CreateAssembliesPartsJoinTable &amp;lt; ActiveRecord::Migration[``5``.``0``]``  ``def`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`change``    ``create_join_table ``:assemblies``, ``:parts`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`do`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`|t|``      ``t.index ``:assembly_id``      ``t.index ``:part_id``    ``end``  ``end``end`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;双向关联的问题&#34;&gt;双向关联的问题&lt;/h4&gt;
+
+&lt;p&gt;Active Record 能自动识别多数具有标准名称的双向关联。然而，具有下述选项的关联无法识别：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:conditions&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:through&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:polymorphic&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:class_name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:foreign_key&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Active Record 提供了 &lt;code&gt;:inverse_of&lt;/code&gt; 选项，可以通过它明确声明双向关联&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;sb&#34;&gt;`class`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`Author &amp;lt; ApplicationRecord``  ``has_many ``:books``, inverse_of: ``&amp;#39;writer&amp;#39;``end`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`class`&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`Book &amp;lt; ApplicationRecord``  ``belongs_to ``:writer``, class_name: ``&amp;#39;Author&amp;#39;``, foreign_key: ``&amp;#39;author_id&amp;#39;``end`&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;inverse_of&lt;/code&gt; 有些限制：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不支持 &lt;code&gt;:through&lt;/code&gt; 关联；&lt;/li&gt;
+&lt;li&gt;不支持 &lt;code&gt;:polymorphic&lt;/code&gt; 关联；&lt;/li&gt;
+&lt;li&gt;不支持 &lt;code&gt;:as&lt;/code&gt; 选项；&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+    </item>
     
     <item>
       <title>“软件测试&#34;</title>

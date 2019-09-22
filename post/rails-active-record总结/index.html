@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>归档 - Mars167 Blog</title>
+  <title>Rails Active Record总结 - Mars167 Blog</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="mars167" />
-  <meta name="description" content="想起来就写写的博客" />
+  <meta name="description" content=" 总结自Ruby on Rails 指南
+" />
+
   <meta name="keywords" content="Mars167,技术博客, blog, jane, Mars167的hugo博客, golang" />
 
 
@@ -34,8 +36,7 @@
 <meta name="generator" content="Hugo 0.54.0" />
 
 
-<link rel="canonical" href="http://blog.sunjinhui.top/post/" />
-<link href="http://blog.sunjinhui.top/post/index.xml" rel="alternate" type="application/rss+xml" title="Mars167 Blog" />
+<link rel="canonical" href="http://blog.sunjinhui.top/post/rails-active-record%E6%80%BB%E7%BB%93/" />
 
 
 
@@ -57,19 +58,33 @@
 
 
 
-<meta property="og:title" content="Posts" />
-<meta property="og:description" content="想起来就写写的博客" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://blog.sunjinhui.top/post/" />
+<meta property="og:title" content="Rails Active Record总结" />
+<meta property="og:description" content="
+总结自Ruby on Rails 指南
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blog.sunjinhui.top/post/rails-active-record%E6%80%BB%E7%BB%93/" />
+<meta property="article:published_time" content="2019-09-22T16:14:57&#43;08:00"/>
+<meta property="article:modified_time" content="2019-09-22T16:14:57&#43;08:00"/><meta property="og:site_name" content="Mars167 Blog" />
 
-<meta property="og:updated_time" content="2019-09-22T16:14:57&#43;08:00"/><meta property="og:site_name" content="Mars167 Blog" />
+<meta itemprop="name" content="Rails Active Record总结">
+<meta itemprop="description" content="
+总结自Ruby on Rails 指南
+">
 
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="想起来就写写的博客">
 
+<meta itemprop="datePublished" content="2019-09-22T16:14:57&#43;08:00" />
+<meta itemprop="dateModified" content="2019-09-22T16:14:57&#43;08:00" />
+<meta itemprop="wordCount" content="885">
+
+
+
+<meta itemprop="keywords" content="“ruby”,”ruby on rails”,”active record&#34;," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="想起来就写写的博客"/>
+<meta name="twitter:title" content="Rails Active Record总结"/>
+<meta name="twitter:description" content="
+总结自Ruby on Rails 指南
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -206,7 +221,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -260,154 +275,287 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="archive" class="archive">
-    <div class="archive-title">
-      <span class="archive-post-counter">
-          共计 11 篇文章
-      </span>
-    </div>
+          <article class="post bg-white">
     
-      <div class="collection-title">
-        <h2 class="archive-year">2019</h2>
+    <header class="post-header">
+      <h1 class="post-title">Rails Active Record总结</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-09-22" class="post-time">
+          2019-09-22
+        </time>
+        <div class="post-category">
+            <a href="http://blog.sunjinhui.top/categories/ruby-on-rails/"> ”ruby on rails” </a>
+            
+          </div>
+        <span class="more-meta"> 约 885 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
       </div>
+    </header>
 
-    <div class="archive-post">
-      <time datetime="2019-09-22" class="archive-post-time">
-        2019-09-22
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/rails-active-record%E6%80%BB%E7%BB%93/" class="archive-post-link">
-          Rails Active Record总结
-        </a>
-      </span>
-    </div>
+    
     
 
-    <div class="archive-post">
-      <time datetime="2019-05-23" class="archive-post-time">
-        2019-05-23
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/softwaretesting_summary/" class="archive-post-link">
-          “软件测试&#34;
-        </a>
-      </span>
+    
+    <div class="post-content">
+      <blockquote>
+<p>总结自<a href="https://ruby-china.github.io/rails-guides/index.html">Ruby on Rails 指南</a></p>
+</blockquote>
+
+<h3 id="rails-6种关联类型">Rails 6种关联类型</h3>
+
+<ul>
+<li><code>belongs_to</code>
+
+<ul>
+<li>声明所在的模型实例属于另一个模型的实例</li>
+<li>外键在 <code>belongs_to</code> 关联所在模型对应的表中，即XXX_id所在的模型</li>
+<li>在 <code>has_one</code> 和 <code>belongs_to</code> 关联中，必须使用 <code>build_*</code> 方法构建关联对象。<code>association.build</code> 方法是在 <code>has_many</code> 和 <code>has_and_belongs_to_many</code> 关联中使用的。创建关联对象要使用 <code>create_*</code> 方法。</li>
+<li>声明 <code>belongs_to</code> 关联后，所在的类自动获得了五个和关联相关的方法：
+
+<ul>
+<li><code>association</code></li>
+<li><code>association=(associate)</code></li>
+<li><code>build_association(attributes = {})</code>返回对象不存入数据库</li>
+<li><code>create_association(attributes = {})</code>返回对象并存入数据库</li>
+<li><code>create_association!(attributes = {})</code>不通过valid时抛出异常</li>
+</ul></li>
+<li><code>belongs_to</code> 关联支持下列选项：
+
+<ul>
+<li><code>:autosave</code></li>
+<li><code>:class_name</code></li>
+<li><code>:counter_cache</code></li>
+<li><code>:dependent</code></li>
+<li><code>:foreign_key</code></li>
+<li><code>:primary_key</code></li>
+<li><code>:inverse_of</code></li>
+<li><code>:polymorphic</code></li>
+<li><code>:touch</code></li>
+<li><code>:validate</code></li>
+<li><code>:optional</code></li>
+</ul></li>
+<li>在作用域代码块中可以使用任何一个标准的<a href="https://ruby-china.github.io/rails-guides/active_record_querying.html">查询方法</a>。下面分别介绍这几个：
+
+<ul>
+<li><code>where</code></li>
+<li><code>includes</code></li>
+<li><code>readonly</code></li>
+<li><code>select</code></li>
+</ul></li>
+</ul></li>
+<li><code>has_one</code>
+
+<ul>
+<li>这种关联表示模型的实例包含或拥有另一个模型的实例</li>
+<li>声明 <code>has_one</code> 关联后，声明所在的类自动获得了五个关联相关的方法：
+
+<ul>
+<li><code>association</code></li>
+<li><code>association=(associate)</code></li>
+<li><code>build_association(attributes = {})</code></li>
+<li><code>create_association(attributes = {})</code></li>
+<li><code>create_association!(attributes = {})</code></li>
+</ul></li>
+<li><code>has_one</code> 关联支持下列选项：
+
+<ul>
+<li><code>:as</code></li>
+<li><code>:autosave</code></li>
+<li><code>:class_name</code></li>
+<li><code>:dependent</code></li>
+<li><code>:foreign_key</code></li>
+<li><code>:inverse_of</code></li>
+<li><code>:primary_key</code></li>
+<li><code>:source</code></li>
+<li><code>:source_type</code></li>
+<li><code>:through</code></li>
+<li><code>:validate</code></li>
+</ul></li>
+<li>在作用域代码块中可以使用任何一个标准的<a href="https://ruby-china.github.io/rails-guides/active_record_querying.html">查询方法</a>。下面介绍其中几个：
+
+<ul>
+<li><code>where</code></li>
+<li><code>includes</code></li>
+<li><code>readonly</code></li>
+<li><code>select</code></li>
+</ul></li>
+</ul></li>
+<li><code>has_many</code>
+
+<ul>
+<li><code>has_many</code> 关联建立两个模型之间的一对多关系。在 <code>belongs_to</code> 关联的另一端经常会使用这个关联</li>
+<li>声明 <code>has_many</code> 关联后，声明所在的类自动获得了 16 个关联相关的方法：
+
+<ul>
+<li><code>collection</code></li>
+<li><code>collection&lt;&lt;(object, &amp;#8230;&amp;#8203;)</code></li>
+<li><code>collection.delete(object, &amp;#8230;&amp;#8203;)</code></li>
+<li><code>collection.destroy(object, &amp;#8230;&amp;#8203;)</code></li>
+<li><code>collection=(objects)</code></li>
+<li><code>collection_singular_ids</code></li>
+<li><code>collection_singular_ids=(ids)</code></li>
+<li><code>collection.clear</code></li>
+<li><code>collection.empty?</code></li>
+<li><code>collection.size</code></li>
+<li><code>collection.find(&amp;#8230;&amp;#8203;)</code></li>
+<li><code>collection.where(&amp;#8230;&amp;#8203;)</code></li>
+<li><code>collection.exists?(&amp;#8230;&amp;#8203;)</code></li>
+<li><code>collection.build(attributes = {}, &amp;#8230;&amp;#8203;)</code></li>
+<li><code>collection.create(attributes = {})</code></li>
+<li><code>collection.create!(attributes = {})</code></li>
+</ul></li>
+<li><code>has_many</code> 关联支持以下选项：
+
+<ul>
+<li><code>:as</code></li>
+<li><code>:autosave</code></li>
+<li><code>:class_name</code></li>
+<li><code>:counter_cache</code></li>
+<li><code>:dependent</code></li>
+<li><code>:foreign_key</code></li>
+<li><code>:inverse_of</code></li>
+<li><code>:primary_key</code></li>
+<li><code>:source</code></li>
+<li><code>:source_type</code></li>
+<li><code>:through</code></li>
+<li><code>:validate</code></li>
+</ul></li>
+<li></li>
+</ul></li>
+<li><code>has_many :through</code>
+
+<ul>
+<li>建立两个模型之间的多对多关联。这种关联表示一个模型的实例可以借由第三个模型（关系表），拥有零个和多个另一模型的实例。</li>
+<li>有一个关系表和相对应的model</li>
+<li>如果想把关联模型当做独立实体使用，要用 <code>has_many :through</code> 关联</li>
+</ul></li>
+<li><code>has_one :through</code>
+
+<ul>
+<li>通过第三个模型，建立其他两个模型的一对一关系</li>
+</ul></li>
+<li><code>has_and_belongs_to_many</code>
+
+<ul>
+<li>不借由第三个模型建立的多对多</li>
+<li>仍然有第三个关系表但这个表没有model</li>
+<li>如果不需要使用关联模型，建立 <code>has_and_belongs_to_many</code> 关联更简单（不过要记得在数据库中创建联结表）</li>
+</ul></li>
+</ul>
+
+<h4 id="自联结如何创建">自联结如何创建</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="sb">`class`</span> <span class="sb">`Employee &lt; ApplicationRecord``  ``has_many ``:subordinates``, class_name: ``&#34;Employee&#34;``,``                          ``foreign_key: ``&#34;manager_id&#34;`</span> <span class="sb">`  ``belongs_to ``:manager``, class_name: ``&#34;Employee&#34;``end`</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="创建联结表">创建联结表</h4>
+
+<p>使用<code>create_join_table</code>创建联结表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="sb">`class`</span> <span class="sb">`CreateAssembliesPartsJoinTable &lt; ActiveRecord::Migration[``5``.``0``]``  ``def`</span> <span class="sb">`change``    ``create_join_table ``:assemblies``, ``:parts`</span> <span class="sb">`do`</span> <span class="sb">`|t|``      ``t.index ``:assembly_id``      ``t.index ``:part_id``    ``end``  ``end``end`</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="双向关联的问题">双向关联的问题</h4>
+
+<p>Active Record 能自动识别多数具有标准名称的双向关联。然而，具有下述选项的关联无法识别：</p>
+
+<ul>
+<li><code>:conditions</code></li>
+<li><code>:through</code></li>
+<li><code>:polymorphic</code></li>
+<li><code>:class_name</code></li>
+<li><code>:foreign_key</code></li>
+</ul>
+
+<p>Active Record 提供了 <code>:inverse_of</code> 选项，可以通过它明确声明双向关联</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="sb">`class`</span> <span class="sb">`Author &lt; ApplicationRecord``  ``has_many ``:books``, inverse_of: ``&#39;writer&#39;``end`</span> <span class="sb">`class`</span> <span class="sb">`Book &lt; ApplicationRecord``  ``belongs_to ``:writer``, class_name: ``&#39;Author&#39;``, foreign_key: ``&#39;author_id&#39;``end`</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>inverse_of</code> 有些限制：</p>
+
+<ul>
+<li>不支持 <code>:through</code> 关联；</li>
+<li>不支持 <code>:polymorphic</code> 关联；</li>
+<li>不支持 <code>:as</code> 选项；</li>
+</ul>
     </div>
+
+    
     
 
-    <div class="archive-post">
-      <time datetime="2019-05-12" class="archive-post-time">
-        2019-05-12
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/composer_install/" class="archive-post-link">
-          Composer_install
-        </a>
-      </span>
-    </div>
+
+    
     
 
-    <div class="archive-post">
-      <time datetime="2019-05-07" class="archive-post-time">
-        2019-05-07
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/gitignore/" class="archive-post-link">
-          Gitignore
-        </a>
-      </span>
-    </div>
-    
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://blog.sunjinhui.top/tags/ruby/">“ruby”</a>
+          <a href="http://blog.sunjinhui.top/tags/ruby-on-rails/">”ruby on rails”</a>
+          <a href="http://blog.sunjinhui.top/tags/active-record/">”active record&#34;</a>
+          
+        </div>
 
-    <div class="archive-post">
-      <time datetime="2019-04-26" class="archive-post-time">
-        2019-04-26
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5/" class="archive-post-link">
-          进程、线程、协程与goruntine笔记
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-04-18" class="archive-post-time">
-        2019-04-18
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/magicmethod/" class="archive-post-link">
-          PHP魔术方法总结
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-04-16" class="archive-post-time">
-        2019-04-16
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/mojave_bug/" class="archive-post-link">
-          MacOS Mojave 10.14.3 Wi-Fi卡死
-        </a>
-      </span>
-    </div>
-    
-
-    <div class="archive-post">
-      <time datetime="2019-04-16" class="archive-post-time">
-        2019-04-16
-      </time>
-      <span class="archive-post-title">
-        <a href="/post/9_%E5%9B%9E%E6%96%87%E6%95%B0/" class="archive-post-link">
-          9_回文数
-        </a>
-      </span>
-    </div></section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
       
-      <li  class="active" >
-        <a href="/post/">1</a>
-      </li>
-      
-      <li >
-        <a href="/post/page/2/">2</a>
-      </li>
-      
-    </ul>
-  </nav>
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/softwaretesting_summary/">
+            <span class="next-text nav-default">“软件测试&#34;</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
 
   
   
+  
+  
 
-
-
-
-
+  
+  <div class="post bg-white">
+    <script src="https://utteranc.es/client.js"
+          repo="mars167/hugo"
+          issue-term="pathname"
+          label="11111"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
         </div>
       </div>
     </main>
